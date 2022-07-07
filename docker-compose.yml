@@ -1,0 +1,46 @@
+version: '3.3'
+
+
+services:
+
+  ros_realsense:
+    container_name: ros_realsense
+    image: deaffella/ros_realsense
+    build:
+      context: ./
+      dockerfile: ros_realsense.Dockerfile
+    privileged: true
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./mount_dir/:/mount_dir/
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev/:/dev/
+    restart: always
+    working_dir:
+      /mount_dir/
+    environment:
+      - DISPLAY=$DISPLAY
+    network_mode: host
+    entrypoint: "bash"
+
+  ros_realsense_pytorch:
+    container_name: ros_realsense_pytorch
+    image: deaffella/ros_realsense_pytorch
+    build:
+      context: ./
+      dockerfile: ros_realsense_pytorch.Dockerfile
+    privileged: true
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./mount_dir/:/mount_dir/
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev/:/dev/
+    restart: always
+    working_dir:
+      /mount_dir/
+    environment:
+      - DISPLAY=$DISPLAY
+    network_mode: host
+    entrypoint: "bash"
