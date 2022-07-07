@@ -8,7 +8,7 @@ services:
     image: deaffella/ros_realsense
     build:
       context: ./
-      dockerfile: ros_realsense.Dockerfile
+      dockerfile: Docker/ros_realsense.Dockerfile
     privileged: true
     tty: true
     stdin_open: true
@@ -29,7 +29,7 @@ services:
     image: deaffella/ros_realsense_pytorch
     build:
       context: ./
-      dockerfile: ros_realsense_pytorch.Dockerfile
+      dockerfile: Docker/ros_realsense_pytorch.Dockerfile
     privileged: true
     tty: true
     stdin_open: true

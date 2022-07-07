@@ -3,7 +3,7 @@ import numpy as np
 from typing import List, Tuple
 import cv2
 
-from utils.translit import translit_ru_to_eng
+from mount_dir.realsense.utils.translit import translit_ru_to_eng
 
 def get_connected_realsense_ids() -> List[Tuple[str, str]]:
     realsense_ctx = rs.context()
